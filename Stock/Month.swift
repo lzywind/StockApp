@@ -10,10 +10,14 @@ import UIKit
 
 class Month: UITableViewController{
 
-    var fruits = ["Apple123", "Apricot", "Banana", "Blueberry", "Cantaloupe","Cherry", "Clementine", "Coconut", "Cranberry", "Fig", "Grape"]
+    var recordHis = ["Name" ,"XAUUSD", "USDCAD", "Banana", "Blueberry"]
     
+    
+ 
+    @IBOutlet var TabelViewA: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
 
@@ -31,16 +35,36 @@ class Month: UITableViewController{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return fruits.count
+        return recordHis.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableA", for: indexPath)
+        let customcell = tableView.dequeueReusableCell(withIdentifier: "TableACell", for: indexPath) as! UITableViewCellA
         
-        let fruitName = fruits[indexPath.row]
-        cell.textLabel?.text=fruitName
+        let fruitName = recordHis[indexPath.row]
+//        cell.textLabel?.text=fruitName
+        customcell.name.text=fruitName
+        customcell.date.text="Time Stamps"
+        customcell.price.text="Price Range"
+        customcell.profit.text="Benefit/Loss"
         
-        return cell
+        customcell.name.layer.borderWidth = 1.0
+        customcell.name.layer.borderColor=UIColor.lightGray.cgColor
+        customcell.date.layer.borderWidth = 1.0
+        customcell.date.layer.borderColor=UIColor.lightGray.cgColor
+        customcell.price.layer.borderWidth = 1.0
+        customcell.price.layer.borderColor=UIColor.lightGray.cgColor
+        customcell.profit.layer.borderWidth = 1.0
+        customcell.profit.layer.borderColor=UIColor.lightGray.cgColor
+        
+        if(indexPath.row==0){
+        customcell.layer.backgroundColor=UIColor.black.cgColor
+        }else{
+        customcell.layer.backgroundColor=UIColor.darkGray.cgColor
+        }
+        
+        
+        return customcell
     }
 
 }

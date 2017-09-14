@@ -21,8 +21,8 @@ class LoginController: UIViewController {
     }()
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        button.setTitle("Register", for: .normal)
+        button.backgroundColor = UIColor(r: 255, g: 128, b: 128)
+        button.setTitle("Log In", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -67,7 +67,7 @@ class LoginController: UIViewController {
     //HAPI 6
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "seneca-college-logo")
+        imageView.image = UIImage(named: "name")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -79,7 +79,7 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         
         
-        view.backgroundColor = UIColor (r: 61, g: 91, b: 151)
+        view.backgroundColor = UIColor (r: 255, g: 0, b: 0)
         
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
@@ -99,8 +99,8 @@ class LoginController: UIViewController {
         // need x, y , width, height constraints
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         profileImageView.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         
     }

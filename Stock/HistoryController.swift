@@ -8,15 +8,31 @@
 
 import UIKit
 
-class HistoryController: UIViewController,UITabBarDelegate {
+class HistoryController: UIViewController,UITabBarDelegate,UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var cA: UIView!
     @IBOutlet weak var cB: UIView!
+    @IBOutlet weak var cC: UIView!
+    @IBOutlet weak var cD: UIView!
+    @IBOutlet weak var cview: UICollectionView!
+    struct total {
+        var obname : String!
+        var obdata : String!
+    }
+    var totalarray=[total]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.cA.alpha=1;
         self.cB.alpha=0;
+        self.cC.alpha=0;
+        self.cD.alpha=0;
+        // Do any additional setup after loading the view, typically from a nib.
+        totalarray=[total(obname:"Total Capital",obdata:"1,000,000"),
+                    total(obname:"Total Time",obdata:"39"),
+                    total(obname:"Success Rate",obdata:"73.5%"),
+                    total(obname:"Total Benifit Rate",obdata:"35.5%"),
+                    total(obname:"Total Benifit/loss",obdata:"155,000"),
+                    total(obname:"Benfit/Loss Daily ",obdata:"-8,000")]
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,12 +40,52 @@ class HistoryController: UIViewController,UITabBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print("wqe")
-        if(item.tag==1){
-            print("0")
+        if(item.tag==0){
+            self.cA.alpha=1;
+            self.cB.alpha=0;
+            self.cC.alpha=0;
+            self.cD.alpha=0;
+        }else if(item.tag==1){
+            self.cA.alpha=0;
+            self.cB.alpha=1;
+            self.cC.alpha=0;
+            self.cD.alpha=0;
+        }else if(item.tag==2){
+            self.cA.alpha=0;
+            self.cB.alpha=0;
+            self.cC.alpha=1;
+            self.cD.alpha=0;
+        }else if(item.tag==3){
+            self.cA.alpha=0;
+            self.cB.alpha=0;
+            self.cC.alpha=0;
+            self.cD.alpha=1;
+        }else{
+            
         }
     }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
 
+    }
+    
+    // make a cell for each cell index path
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath as IndexPath) as! CollectionViewCell
+        
+         cell.name.text=totalarray[indexPath.row].obname
+         cell.data.text=totalarray[indexPath.row].obdata
+        
+        cell.backgroundColor = UIColor.lightGray
+        
+        return cell
+    }
 
 }
 
