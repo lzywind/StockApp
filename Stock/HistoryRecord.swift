@@ -8,7 +8,8 @@
 
 import Foundation
 
-class HistoryRecord {
+//History record object which contains one transaction initiated by the user
+class HistoryRecord: NSObject {
     
     var recordID: Int?
     var stockName: String?
