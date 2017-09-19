@@ -8,12 +8,13 @@
 
 import UIKit
 
-import Alamofire
+//import Alamofire
 
-class HomeController: UIViewController {
+class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
-    var myInventroy_array : [String] = ["test_item"]
+    var myInventroy_array : [String] = ["XUSA"]
     var inven=InventoryController()
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,6 +22,8 @@ class HomeController: UIViewController {
         }
     override func viewDidAppear(_ animated: Bool) {
         loadMyInventory();
+        tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,33 +44,56 @@ class HomeController: UIViewController {
 //        task.resume()
 //    }
   
-    func tryrequest1(){
-        Alamofire.request("https://globalmetals.xignite.com/xGlobalMetals.json/GetRealTimeExtendedMetalQuote?Symbol=XAU&Currency=USD&_token=8DCBFAB0A06E49238874AF0FA4205431").responseJSON { response in
-            debugPrint(response)
-            
-            if let json = response.result.value {
-                print("JSON: \(json)")
-            }
-        }
-    }
+//    func tryrequest1(){
+//        Alamofire.request("https://globalmetals.xignite.com/xGlobalMetals.json/GetRealTimeExtendedMetalQuote?Symbol=XAU&Currency=USD&_token=8DCBFAB0A06E49238874AF0FA4205431").responseJSON { response in
+//            debugPrint(response)
+//            
+//            if let json = response.result.value {
+//                print("JSON: \(json)")
+//            }
+//        }
+//    }
     
     func loadMyInventory(){
         if (!item1.isEmpty){
         myInventroy_array.append(item1);
+        item1=""
         }
-        var yValue = 280
-        for item in myInventroy_array{
+
+        }
+       func numberOfSections(in tableView: UITableView) -> Int {
+            // #warning Incomplete implementation, return the number of sections
+            return 1
+        }
+         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            // #warning Incomplete implementation, return the number of rows
+            return myInventroy_array.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            view.tintColor=UIColor.lightGray
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Inventory", for: indexPath) 
             
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 180, height: 21))
-            label.center = CGPoint(x: 160, y: yValue)
-            yValue =  285 + 50
-            label.textAlignment = .center
-            label.text = item
-            self.view.addSubview(label)
+            let inventoryName = myInventroy_array[indexPath.row]
+             cell.textLabel?.text = inventoryName
+             cell.textLabel?.textColor = UIColor.white
+
+            return cell
         }
-        //print(myInventroy_array.count)
+//       func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//          return "Incentory"
+//       }
+//  
+//       func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        view.tintColor=UIColor.black
+//        let header = view as! UITableViewHeaderFooterView
+//        header.textLabel?.textColor=UIColor.white
+//        
+//      }
+
     }
     
 
-}
+
 
