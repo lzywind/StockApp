@@ -15,7 +15,10 @@ class PortfolioRecord: NSObject{
     var recordID: Int?
     var stockName: String?
     var buyTime: String?
+    var sellTime: String?
     var buyPrice: Double?
+    var sellPrice: Double?
     var units: Int?
     var profit: Double?
+    var isSold: Bool?
 }

@@ -19,4 +19,5 @@ class HistoryRecord: NSObject {
     var sellPrice: Double?
     var units: Int?
     var profit: Double?
+    var isSold: Bool?
 }

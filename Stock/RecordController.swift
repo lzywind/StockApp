@@ -9,15 +9,38 @@
 import UIKit
 
 
-class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSource, DBConnProto{
+    
+    var feedItems:NSArray = NSArray()
+    var selection:PortfolioRecord = PortfolioRecord();
     @IBOutlet weak var recordtbv: UITableView!
-     var records = ["XAUSD", "USADCAD", "AGUSD", "USOIL", "UROIL","URUSD"]
+    var records = ["XAUSD", "USADCAD", "AGUSD", "USOIL", "UROIL","URUSD"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ////////////////
+        //This section was added by Mathew
+        //The URL string should be made beforehand and the user ID should be concatenated
+        ////////////////
+        self.recordtbv.delegate = self
+        self.recordtbv.dataSource = self
+        
+        let connection = DBConn();
+        connection.delegate = self
+        connection.DBGet(site: "vassairm.dev.fast.sheridanc.on.ca/StockAgent/OwnedStock.php?userid=1234", type: "portfolio")
+        ////////////////
+        
         // Do any additional setup after loading the view, typically from a nib.
         //        tryrequest1()
     }
+    
+    //This updates the table cells
+    func itemsDownloaded(items: NSArray) {
+        feedItems = items;
+        self.recordtbv.reloadData();
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -28,7 +51,7 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return records.count
+        return feedItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
