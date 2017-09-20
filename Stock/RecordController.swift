@@ -28,7 +28,7 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
         
         let connection = DBConn();
         connection.delegate = self
-        connection.DBGet(site: "vassairm.dev.fast.sheridanc.on.ca/StockAgent/OwnedStock.php?userid=1234", type: "portfolio")
+        connection.DBGet(site: "http://vassairm.dev.fast.sheridanc.on.ca/StockAgent/OwnedStock.php?userid=1234", type: "portfolio")
         ////////////////
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -58,12 +58,12 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
         view.tintColor=UIColor.lightGray
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordcell", for: indexPath) as! TableViewRecordCell
         
-        let recordName = records[indexPath.row]
-          cell.name.text = recordName
-          cell.time.text = ""
-          cell.price.text = ""
-          cell.unit.text = ""
-          cell.benifit.text = ""
+        let recordName: PortfolioRecord = feedItems[indexPath.row] as! PortfolioRecord
+          cell.name.text = recordName.stockName
+          cell.time.text = recordName.buyTime
+          cell.price.text = "\(recordName.buyPrice!)"
+          cell.unit.text = "\(recordName.units!)"
+          cell.benifit.text = "\(recordName.profit!)"
         
         cell.name.layer.borderWidth = 1.0
         cell.name.layer.borderColor=UIColor.lightGray.cgColor

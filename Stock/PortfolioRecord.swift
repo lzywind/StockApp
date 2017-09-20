@@ -21,4 +21,16 @@ class PortfolioRecord: NSObject{
     var units: Int?
     var profit: Double?
     var isSold: Bool?
+    
+    func PortfolioRecord(){
+        recordID = 0
+        stockName = ""
+        buyTime = ""
+        sellTime = ""
+        buyPrice = 0.0
+        sellPrice = 0.0
+        units = 0
+        profit = 0.0
+        isSold = false
+    }
 }

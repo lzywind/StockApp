@@ -34,9 +34,9 @@ class DBConn : NSObject, URLSessionDataDelegate {
         
         let task = defaultsession.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                print ("Download Failed!")
+                print ("Download Failed! \(error)")
             } else {
-                print("Download Completed")
+                print("Download Completed \(data)")
                 self.parseJSON(data!, type: type.lowercased())
             }
         }
@@ -50,7 +50,7 @@ class DBConn : NSObject, URLSessionDataDelegate {
         
         let task = defaultsession.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                print("Connection Failed")
+                print("Connection Failed. \(error)")
             } else {
                 print("Connection Successful")
             }
@@ -70,28 +70,31 @@ class DBConn : NSObject, URLSessionDataDelegate {
             print(error)
         }
         
-        let results = NSMutableArray()
+        var results = NSArray()
         
         //Switch for deciding which parsing mthod to use. Swift doesn't fall through cases, so no breaks needed
         switch (type){
             //Switch for querying market data on a stock, hence type "Stock"
             //Stock table hasn't been made yet, so I can't define Stock class
             case "stock":
-                results.add(JSONParseStock(JSONStocks: JSONResult))
+                results = JSONParseStock(JSONStocks: JSONResult)
+            
             
             //Switch for viewing transaction history
             case "history":
-                results.add(JSONParseHistory(JSONHistory: JSONResult))
+                results = JSONParseHistory(JSONHistory: JSONResult)
  
         //Portfolio is equivalent to the "Records" category. Is portfolio the right term?
         //Case for "Currently owned Stock" query
-        case "portfolio":
-            results.add(JSONParsePortfolio(JSONRecords: JSONResult))
+            case "portfolio":
+                results = JSONParsePortfolio(JSONRecords: JSONResult)
 
         //Default case because we need one, all it does is break the switch
         default:
             break
         }
+        
+        print(results)
         
         //This is due to a threading issue. Any functions which update the UI should use something like this
         DispatchQueue.main.async(execute: {() -> Void in
@@ -192,26 +195,26 @@ class DBConn : NSObject, URLSessionDataDelegate {
             let record = PortfolioRecord()
             
             //checks if JSON can be parsed how we want
-            if let recID = JSONElement["RecordID"] as? Int,
-                let stockName = JSONElement["StockName"] as? String,
-                let buyTime = JSONElement["PurchaseTime"] as? String, //I'm assuming this is not going to need to be a number
-                let sellTime = JSONElement["SellingTime"] as? String, //We can change these to something else later of needed
-                let buyPrice = JSONElement["PurchasePrice"] as? Double,
-                let sellPrice = JSONElement["SellingPrice"] as? Double,
-                let units = JSONElement["Units"] as? Int,
-                let profit = JSONElement["BenefitLoss"] as? Double,
+            if let recID = JSONElement["recordId"] as? Int,
+                let stockName = JSONElement["stockName"] as? String,
+                let buyTime = JSONElement["purchaseTime"] as? String, //I'm assuming this is not going to need to be a number
+                let buyPrice = JSONElement["purchasePrice"] as? Double,
+                let units = JSONElement["unit"] as? Int,
+                let profit = JSONElement["benefitLoss"] as? Double,
                 let isSold = JSONElement["isFinished"] as? Bool{
                 //assigning temp records to the PortfolioRecord
                     record.recordID = recID
                     record.stockName = stockName
                     record.buyTime = buyTime
-                    record.sellTime = sellTime
+                    record.sellTime = JSONElement["sellTime"] == nil ? "" : JSONElement["sellTime"] as? String
                     record.buyPrice = buyPrice
-                    record.sellPrice = sellPrice
+                    record.sellPrice = JSONElement["sellPrice"] == nil ? 0.0 : JSONElement["sellPrice"] as? Double
                     record.units = units
                     record.profit = profit
                     record.isSold = isSold
             }
+            print(record.buyPrice!, record.recordID!)
+            
             //add record to list of results
             results.add(record)
             
