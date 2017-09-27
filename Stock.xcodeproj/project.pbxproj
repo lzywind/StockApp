@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		139151515478E77DB7EAC851 /* Pods_Stock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B5AA7F2DDE95FBF378DFFF /* Pods_Stock.framework */; };
+		22DEC1711F720585008B817A /* homeInventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DEC1701F720585008B817A /* homeInventoryCell.swift */; };
+		22E1DDAA1F7898A000FD491E /* DBConn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E1DDA91F7898A000FD491E /* DBConn.swift */; };
+		22E1DDAD1F7898AE00FD491E /* PortfolioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E1DDAB1F7898AE00FD491E /* PortfolioRecord.swift */; };
+		22E1DDAE1F7898AE00FD491E /* StockRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E1DDAC1F7898AE00FD491E /* StockRecord.swift */; };
 		22F536C91F71AA4F0051FB3C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F536C81F71AA4F0051FB3C /* PageViewController.swift */; };
 		B612F4031F3130E500A8EAC9 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B612F4021F3130E500A8EAC9 /* Month.swift */; };
 		B612F4051F31344200A8EAC9 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = B612F4041F31344100A8EAC9 /* Week.swift */; };
 		B61E07FD1F2D26D8004392B6 /* InventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E07FC1F2D26D8004392B6 /* InventoryController.swift */; };
+		B632F5361F7B598C00347F41 /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632F5351F7B598C00347F41 /* HistoryRecord.swift */; };
 		B669C9191F324F5B00CA7A4E /* TableViewCellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C9171F324F5B00CA7A4E /* TableViewCellA.swift */; };
 		B669C9311F32958000CA7A4E /* TableViewCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669C92F1F32958000CA7A4E /* TableViewCellB.swift */; };
 		B6B3813D1F338BC30054866C /* TableViewCellC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3813C1F338BC30054866C /* TableViewCellC.swift */; };
@@ -33,12 +38,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22DEC1701F720585008B817A /* homeInventoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeInventoryCell.swift; sourceTree = "<group>"; };
+		22E1DDA91F7898A000FD491E /* DBConn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConn.swift; sourceTree = "<group>"; };
+		22E1DDAB1F7898AE00FD491E /* PortfolioRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioRecord.swift; sourceTree = "<group>"; };
+		22E1DDAC1F7898AE00FD491E /* StockRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockRecord.swift; sourceTree = "<group>"; };
 		22F536C81F71AA4F0051FB3C /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		72B5AA7F2DDE95FBF378DFFF /* Pods_Stock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C3696DEC12E8436AD691F9 /* Pods-Stock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stock/Pods-Stock.debug.xcconfig"; sourceTree = "<group>"; };
 		B612F4021F3130E500A8EAC9 /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B612F4041F31344100A8EAC9 /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		B61E07FC1F2D26D8004392B6 /* InventoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryController.swift; sourceTree = "<group>"; };
+		B632F5351F7B598C00347F41 /* HistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryRecord.swift; sourceTree = "<group>"; };
 		B669C9171F324F5B00CA7A4E /* TableViewCellA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellA.swift; sourceTree = "<group>"; };
 		B669C92F1F32958000CA7A4E /* TableViewCellB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellB.swift; sourceTree = "<group>"; };
 		B6B3813C1F338BC30054866C /* TableViewCellC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellC.swift; sourceTree = "<group>"; };
@@ -112,7 +122,10 @@
 		B6C0A43F1F2CC8B400A12C54 /* Stock */ = {
 			isa = PBXGroup;
 			children = (
-				22F536C81F71AA4F0051FB3C /* PageViewController.swift */,
+				B632F5351F7B598C00347F41 /* HistoryRecord.swift */,
+				22E1DDAB1F7898AE00FD491E /* PortfolioRecord.swift */,
+				22E1DDAC1F7898AE00FD491E /* StockRecord.swift */,
+				22E1DDA91F7898A000FD491E /* DBConn.swift */,
 				B6C0A4401F2CC8B400A12C54 /* AppDelegate.swift */,
 				B6C0A4461F2CC8B400A12C54 /* Main.storyboard */,
 				B6C0A4491F2CC8B400A12C54 /* Assets.xcassets */,
@@ -120,7 +133,9 @@
 				B6C0A44E1F2CC8B400A12C54 /* Info.plist */,
 				B6B5716C1F2F6E7500DC8F9E /* LoginController.swift */,
 				B6C0A4421F2CC8B400A12C54 /* HomeController.swift */,
+				22DEC1701F720585008B817A /* homeInventoryCell.swift */,
 				B61E07FC1F2D26D8004392B6 /* InventoryController.swift */,
+				22F536C81F71AA4F0051FB3C /* PageViewController.swift */,
 				B6B5716E1F2FBAC700DC8F9E /* RecordController.swift */,
 				B6C0A4441F2CC8B400A12C54 /* HistoryController.swift */,
 				B6C0A4561F2CD1CC00A12C54 /* SettingController.swift */,
@@ -265,6 +280,7 @@
 				B6C0A4451F2CC8B400A12C54 /* HistoryController.swift in Sources */,
 				B6C0A4571F2CD1CC00A12C54 /* SettingController.swift in Sources */,
 				B6B381471F33C96F0054866C /* CollectionViewCell.swift in Sources */,
+				22E1DDAE1F7898AE00FD491E /* StockRecord.swift in Sources */,
 				B6B381451F33B4D20054866C /* TableViewRecordCell.swift in Sources */,
 				B6B381431F338D960054866C /* Custom.swift in Sources */,
 				B612F4031F3130E500A8EAC9 /* Month.swift in Sources */,
@@ -276,11 +292,15 @@
 				B6B381411F338D570054866C /* Day.swift in Sources */,
 				B6C0A4411F2CC8B400A12C54 /* AppDelegate.swift in Sources */,
 				B6B3813F1F338BCF0054866C /* TableViewCellD.swift in Sources */,
+				B632F5361F7B598C00347F41 /* HistoryRecord.swift in Sources */,
 				22F536C91F71AA4F0051FB3C /* PageViewController.swift in Sources */,
 				B612F4051F31344200A8EAC9 /* Week.swift in Sources */,
 				B669C9191F324F5B00CA7A4E /* TableViewCellA.swift in Sources */,
+				22DEC1711F720585008B817A /* homeInventoryCell.swift in Sources */,
+				22E1DDAA1F7898A000FD491E /* DBConn.swift in Sources */,
 				B6C0A4431F2CC8B400A12C54 /* HomeController.swift in Sources */,
 				B6B5716D1F2F6E7500DC8F9E /* LoginController.swift in Sources */,
+				22E1DDAD1F7898AE00FD491E /* PortfolioRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

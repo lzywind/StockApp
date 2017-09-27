@@ -11,14 +11,18 @@ import UIKit
 //import Alamofire
 
 class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource{
-    
-    var myInventroy_array : [String] = ["XUSA"]
-    var inven=InventoryController()
+    struct inventory {
+        var name:String
+        var price:String
+        var percent:[String]
+    }
+    var myInventroy_array : [inventory] = [inventory(name: "XAUSD",price:"29000",percent:["2.0%","-0.22"])]
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        tryrequest1()
+
         }
     override func viewDidAppear(_ animated: Bool) {
         loadMyInventory();
@@ -56,8 +60,8 @@ class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func loadMyInventory(){
         if (!item1.isEmpty){
-        myInventroy_array.append(item1);
-        item1=""
+            myInventroy_array.append(inventory(name:item1,price:"24000.00",percent:["2%","6.22"]));
+            item1=""
         }
 
         }
@@ -65,35 +69,47 @@ class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource
             // #warning Incomplete implementation, return the number of sections
             return 1
         }
-         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
             return myInventroy_array.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            view.tintColor=UIColor.lightGray
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Inventory", for: indexPath) 
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Inventory", for: indexPath)as! homeInventoryCell
             
-            let inventoryName = myInventroy_array[indexPath.row]
-             cell.textLabel?.text = inventoryName
-             cell.textLabel?.textColor = UIColor.white
+             cell.name.text = myInventroy_array[indexPath.row].name
+             cell.price.text = myInventroy_array[indexPath.row].price
+             cell.percent.setTitle(myInventroy_array[indexPath.row].percent[0], for: .normal)
+            
+            //style part
+             let num = Double(myInventroy_array[indexPath.row].percent[1])
+             if (num != nil){
+                if num! > 0{
+                    cell.percent.backgroundColor=UIColor.green
+                }else{
+                    cell.percent.backgroundColor=UIColor.red
+                }
+             }
+             cell.percent.layer.cornerRadius=2.0
+             cell.percent.layer.masksToBounds=true
+            
+            let view = UIView()
+            view.backgroundColor = UIColor(r: 72, g: 104, b: 133)
+            cell.selectedBackgroundView=view
+            
+            //
+            cell.percent.tag = indexPath.row
+            cell.percent.addTarget(self, action: #selector(HomeController.tapFunction), for: .touchUpInside)
 
             return cell
         }
-//       func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-//          return "Incentory"
-//       }
-//  
-//       func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        view.tintColor=UIColor.black
-//        let header = view as! UITableViewHeaderFooterView
-//        header.textLabel?.textColor=UIColor.white
-//        
-//      }
-
+        func tapFunction(sender:UIButton) {
+            let button=sender.viewWithTag(sender.tag) as! UIButton
+            if(button.titleLabel?.text == myInventroy_array[sender.tag].percent[0]){
+                button.setTitle(myInventroy_array[sender.tag].percent[1], for: .normal)
+            }else{
+                button.setTitle(myInventroy_array[sender.tag].percent[0], for: .normal)
+            }
+        }
     }
-    
-
-
 

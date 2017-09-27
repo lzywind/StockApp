@@ -12,14 +12,22 @@ var item1:String=""
 
 class InventoryController: UITableViewController  {
     
-    
-    var inv = ["XAUSD", "USADCAD", "AGUSD", "USOIL", "UROIL","URUSD"]
-    
+    struct inv {
+        var invname:String
+        var invdetail:String
+    }
+    var invarr=[inv]()
 //    var invenInstance=InventoryController()
     
     override func viewDidLoad() {
         super.viewDidLoad()	
-         
+        invarr = [inv(invname:"XAUSD",invdetail: "default"),
+                  inv(invname:"USADCAD",invdetail:"default"),
+                  inv(invname:"AGUSD",invdetail:"default"),
+                  inv(invname:"USOIL",invdetail:"default"),
+                  inv(invname:"UROIL",invdetail:"default"),
+                  inv(invname:"URUSD",invdetail:"default")]
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,17 +42,16 @@ class InventoryController: UITableViewController  {
     
     //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inv.count
+        return invarr.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath)
         
-        let fruitName = inv[indexPath.row]
-        cell.textLabel?.text = fruitName
-        //cell.detailTextLabel?.text = "Delicious!"
-        //cell.imageView?.image = UIImage(named: fruitName)
-        
+        cell.textLabel?.text = invarr[indexPath.row].invname
+        cell.detailTextLabel?.text=invarr[indexPath.row].invdetail
+        cell.textLabel?.textColor=UIColor.white
+        cell.detailTextLabel?.textColor=UIColor.white
         return cell
     }
     
