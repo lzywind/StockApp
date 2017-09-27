@@ -57,7 +57,8 @@ class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func loadMyInventory(){
         if (!item1.isEmpty){
         myInventroy_array.append(item1);
-        item1="";
+
+        item1=""
         }
 
         }
@@ -65,6 +66,7 @@ class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource
             // #warning Incomplete implementation, return the number of sections
             return 1
         }
+
          func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
             return myInventroy_array.count
@@ -77,19 +79,22 @@ class HomeController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let inventoryName = myInventroy_array[indexPath.row]
              cell.textLabel?.text = inventoryName
 
+             cell.textLabel?.textColor = UIColor.white
+
             return cell
         }
-       func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-          return "Incentory"
-       }
-  
-       func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor=UIColor.black
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor=UIColor.white
-        
-      }
+//       func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//          return "Incentory"
+//       }
+//  
+//       func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        view.tintColor=UIColor.black
+//        let header = view as! UITableViewHeaderFooterView
+//        header.textLabel?.textColor=UIColor.white
+//        
+//      }
+
 
     }
     

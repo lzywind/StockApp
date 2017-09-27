@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSource, DBConnProto{
     
     var feedItems:NSArray = NSArray()
@@ -41,6 +42,7 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
         self.recordtbv.reloadData();
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,19 +53,23 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+
         return feedItems.count
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         view.tintColor=UIColor.lightGray
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordcell", for: indexPath) as! TableViewRecordCell
         
+
         let recordName: PortfolioRecord = feedItems[indexPath.row] as! PortfolioRecord
           cell.name.text = "\(recordName.stockID!)"
           cell.time.text = recordName.buyTime
           cell.price.text = "\(recordName.buyPrice!)"
           cell.unit.text = "\(recordName.units!)"
           cell.benifit.text = "\(recordName.profit!)"
+
         
         cell.name.layer.borderWidth = 1.0
         cell.name.layer.borderColor=UIColor.lightGray.cgColor
