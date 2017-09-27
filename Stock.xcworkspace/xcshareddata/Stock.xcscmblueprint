@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "839F41F0FD425BC2EF73138E6B3CFF51F6DA9983",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "839F41F0FD425BC2EF73138E6B3CFF51F6DA9983" : 9223372036854775807,
+    "F86AA222897A42830A2C109FB2A3ACB90474FBE3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D9E9D8ED-3A1C-4E83-BB41-E5A4B87BC173",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "839F41F0FD425BC2EF73138E6B3CFF51F6DA9983" : "Stock\/",
+    "F86AA222897A42830A2C109FB2A3ACB90474FBE3" : "Stock\/Stock\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Stock",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Stock.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lzywind\/StockApp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "839F41F0FD425BC2EF73138E6B3CFF51F6DA9983"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lzywind\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F86AA222897A42830A2C109FB2A3ACB90474FBE3"
+    }
+  ]
+}
