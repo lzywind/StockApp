@@ -13,7 +13,8 @@ import Foundation
 class PortfolioRecord: NSObject{
 
     var recordID: Int?
-    var stockName: String?
+    var userID: Int?
+    var stockID: Int?
     var buyTime: String?
     var sellTime: String?
     var buyPrice: Double?
@@ -24,7 +25,8 @@ class PortfolioRecord: NSObject{
     
     func PortfolioRecord(){
         recordID = 0
-        stockName = ""
+        userID = 0;
+        stockID = 0
         buyTime = ""
         sellTime = ""
         buyPrice = 0.0

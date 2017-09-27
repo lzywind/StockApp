@@ -28,7 +28,7 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
         
         let connection = DBConn();
         connection.delegate = self
-        connection.DBGet(site: "http://vassairm.dev.fast.sheridanc.on.ca/StockAgent/OwnedStock.php?userid=1234", type: "portfolio")
+        connection.DBGet(site: "http://vassairm.dev.fast.sheridanc.on.ca/StockAgent/OwnedStock.php?userid=12345", type: "portfolio")
         ////////////////
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -59,7 +59,7 @@ class RecordController: UIViewController,UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordcell", for: indexPath) as! TableViewRecordCell
         
         let recordName: PortfolioRecord = feedItems[indexPath.row] as! PortfolioRecord
-          cell.name.text = recordName.stockName
+          cell.name.text = "\(recordName.stockID!)"
           cell.time.text = recordName.buyTime
           cell.price.text = "\(recordName.buyPrice!)"
           cell.unit.text = "\(recordName.units!)"
