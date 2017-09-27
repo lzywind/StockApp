@@ -7,10 +7,11 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$getwatch=$conn->prepare("SELECT stockid FROM SelectStock WHERE userid = ?");
-$getwatch->bind_param("i", $uid);
+$uid = intval(htmlspecialchars($_GET["userid"]));
 
-$uid = intval(htmlspecialchars($_GET["uid"]));
+//gets the IDs of the stocks the specified user is watching
+$getwatch=$conn->prepare("SELECT stockId FROM SelectStock WHERE userId = ?");
+$getwatch->bind_param("i", $uid);
 
 if (is_int($uid)){
     $getwatch->execute();
@@ -22,16 +23,34 @@ if (is_int($uid)){
     }
 }
 
-$getStock=$conn->prepare("Select * FROM stock where stockid = ?");
-$getstock->bind_param("i", $stockid);
-$finalResult = Array();
-$getStock->bind_result($tempStock);
-foreach($watchArray as $stockid){
-    $getStock->execute();
-    $finalresult[] = $tempStock;
-}
+$getwatch->close();
 
-echo json_encode($finalResult);
+//gets the stock info of the stocks retrieved from the query above
+$getStock=$conn->prepare("Select * FROM Stock WHERE stockId = ?");
+$getStock->bind_param("i", $stockid);
+
+    $getStock->execute();
+    
+    $meta=$getStock->result_metadata();
+    while($field = $meta->fetch_field()){
+        $params[] = &$row[$field->name];
+    }
+    
+    call_user_func_array(array($getStock, 'bind_result'),$params);
+    
+foreach($watchArray as $stockid){
+
+    $getStock->execute();
+
+    while($getStock->fetch()){
+        foreach($row as $key => $val){
+            $c[$key] = $val;
+        }
+        $result[] = $c;
+    }
+}
+$getStock->close();
+echo json_encode($result);
 
 mysqli_close($conn);
 ?>
