@@ -1,0 +1,28 @@
+[20-Sep-2017 11:08:00 America/Toronto] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 12
+[20-Sep-2017 11:12:31 America/Toronto] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 19
+[20-Sep-2017 11:23:10 America/Toronto] PHP Fatal error:  Call to undefined method mysqli_stmt::storeResult() in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 26
+[20-Sep-2017 11:24:59 America/Toronto] PHP Warning:  Invalid argument supplied for foreach() in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 33
+[25-Sep-2017 12:20:55 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on null in /home/vassairm/public_html/StockAgent/Watchlist.php on line 26
+[25-Sep-2017 12:22:55 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on null in /home/vassairm/public_html/StockAgent/Watchlist.php on line 26
+[25-Sep-2017 12:24:46 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on null in /home/vassairm/public_html/StockAgent/Watchlist.php on line 27
+[25-Sep-2017 12:25:08 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/Watchlist.php on line 26
+[25-Sep-2017 12:26:23 America/Toronto] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/vassairm/public_html/StockAgent/Watchlist.php on line 28
+[25-Sep-2017 12:30:19 America/Toronto] PHP Fatal error:  Call to a member function fetch() on null in /home/vassairm/public_html/StockAgent/Watchlist.php on line 41
+[25-Sep-2017 12:33:55 America/Toronto] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/vassairm/public_html/StockAgent/Watchlist.php on line 40
+[25-Sep-2017 12:34:16 America/Toronto] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/vassairm/public_html/StockAgent/Watchlist.php on line 39
+[25-Sep-2017 12:44:29 America/Toronto] PHP Warning:  Wrong parameter count for mysqli_stmt::bind_param() in /home/vassairm/public_html/StockAgent/Summary.php on line 16
+[25-Sep-2017 15:09:09 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:14:31 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:20:04 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:20:52 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:21:49 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:22:37 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:23:25 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:24:34 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:24:57 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:25:52 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[25-Sep-2017 15:26:41 America/Toronto] PHP Fatal error:  Call to a member function bind_param() on boolean in /home/vassairm/public_html/StockAgent/OwnedStock.php on line 11
+[26-Sep-2017 18:57:16 America/Toronto] PHP Fatal error:  Call to undefined function htlmspecialchars() in /home/vassairm/public_html/StockAgent/ChangeWatch.php on line 10
+[26-Sep-2017 18:57:46 America/Toronto] PHP Fatal error:  Call to undefined function as_int() in /home/vassairm/public_html/StockAgent/ChangeWatch.php on line 11
+[26-Sep-2017 18:58:32 America/Toronto] PHP Fatal error:  Call to undefined function htmlspecialschars() in /home/vassairm/public_html/StockAgent/ChangeWatch.php on line 14
+[26-Sep-2017 18:58:46 America/Toronto] PHP Fatal error:  Call to a member function execute() on null in /home/vassairm/public_html/StockAgent/ChangeWatch.php on line 19
