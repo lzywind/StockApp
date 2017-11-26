@@ -15,12 +15,18 @@ if ($type == 'add'){
     $addWatch = $conn->prepare("INSERT INTO SelectStock (userId, stockId) VALUES (?, ?);");
     $addWatch->bind_param("ii", $userid, $stockid);
     $addWatch->execute();
+    
+    //"No news is good news" ideology
+    if ($addWatch->error)
+        echo json_encode ($addWatch->error);
 }
 
 if ($type == 'remove'){
     $removeWatch = $conn->prepare("DELETE FROM SelectStock WHERE userId = ? AND stockId = ?");
     $removeWatch->bind_param("ii", $userid, $stockid);
     $removeWatch->execute();
+    
+    echo json_encode($conn->affected_rows);
 }
 
 mysqli_close($conn);
